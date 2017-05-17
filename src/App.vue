@@ -21,7 +21,6 @@
   </div>
 </template>
 <script type=text/ecmascript-6>
-//修改
 import mTabbar from './components/tabbar'
 import mTabbarItem from './components/tabbar-item'
 export default {
