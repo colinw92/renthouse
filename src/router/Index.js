@@ -5,6 +5,7 @@ import recommend from '../pages/recommend/recommend'
 import mine from '../pages/mine/mine'
 import login from '../pages/login/login'
 import person from '../pages/person/person'
+import houseDetail from '../pages/houseDetail/houseDetail'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
       path:'/person',
       name:'Person',
       component: person
+    },
+    {
+      path:'/houseDetail',
+      name:'HouseDetail',
+      component: houseDetail
     }
   ]
 })

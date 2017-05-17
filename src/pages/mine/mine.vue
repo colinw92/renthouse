@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow-x: hidden;">
     <!--<m-header title="我的" :bg="true">-->
     <!--</m-header>-->
     <div class="box">
@@ -26,9 +26,11 @@
           </div>
         </div>
       </router-link>
-      <router-link to='/person' v-if="user.username">
-        <span v-on:click.prevent="exit">退出</span>
-      </router-link>
+      <div v-if="user.username" class="loginSuccess">
+        <div><span style="float: left;">昵称</span><span style="float: right;">{{user.username}}&nbsp;></span></div>
+        <div style="margin-top: 10px;">关于我们</div>
+        <div v-on:click.prevent="exit" style="text-align: center;margin-top: 100px;color: #ff0000;">退出登录</div>
+      </div>
     </div>
   </div>
 </template>
@@ -186,5 +188,16 @@
     75%{-webkit-transform:rotateZ(360deg) rotateY(10deg) rotateX(10deg);}
     76%{-webkit-transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
     100%{-webkit-transform:rotateX(10deg) rotateY(10deg) rotateZ(10deg);}
+  }
+  .loginSuccess{
+    text-decoration: none;
+    color: #000;
+    div{
+      padding: 0px 20px;
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #eee;
+      border-top: 1px solid #eee;
+    }
   }
 </style>

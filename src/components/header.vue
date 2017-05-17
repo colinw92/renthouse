@@ -5,12 +5,21 @@
     </div>
     <h1 class="m-header-title" v-text="title"></h1>
     <div class="m-header-button is-right">
-      <slot name="right"></slot>
+      <router-link to="/login" v-if="!user.username">
+        <slot name="right"></slot>
+      </router-link>
+      <router-link to="/mine" v-if="user.username">
+        <slot name="right"></slot>
+      </router-link>
     </div>
   </header>
 </template>
-<script>
+<script type=text/ecmascript-6>
+  import { mapState } from 'vuex'
   export default{
+      computed:mapState({
+        user:state => state.user
+      }),
       props:{
           title:{
               type:String,
@@ -36,7 +45,7 @@
     padding: 0 10px;
     background: #fff;
     color: @headerDefaultColor;
-    border: 1px solid #eee;
+    /*border: 1px solid #eee;*/
     a{
       color: @headerDefaultColor;
     }
@@ -46,6 +55,9 @@
       width: 70px;
       justify-content: center;
       align-items: stretch;
+      a{
+        text-decoration: none;
+      }
        &.is-left{
         text-align: left;
        }

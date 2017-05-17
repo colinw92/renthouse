@@ -12,7 +12,7 @@
         <img src="./assets/images/recommend-active.png" alt="" slot="icon-active">
         推荐
       </m-tabbar-item>
-      <m-tabbar-item id="Mine" isRouter>
+      <m-tabbar-item id="Login" isRouter>
         <img src="./assets/images/mine.png" alt="" slot="icon-normal">
         <img src="./assets/images/mine-active.png" alt="" slot="icon-active">
         我的

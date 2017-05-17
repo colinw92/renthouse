@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-  import "../assets/lib/swiper/js/swiper"
   export default{
     props:{
       swipeid:{
@@ -47,10 +46,5 @@
   }
 </script>
 <style lang="less" scoped>
-  @import "../assets/lib/swiper/css/swiper.css";
-  .swiper-container img{
-    width: 100%;
-    height: 200px;
-    /*width: 330px;*/
-  }
+
 </style>
