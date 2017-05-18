@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 export const USER_SIGNIN='USER_SIGNIN'
 export const USER_SIGNOUT='USER_SIGNOUT'
+export const SLIDE_FLAG='SLIDE_FLAG'
 
 export default{
   state:JSON.parse(sessionStorage.getItem('user'))||{},

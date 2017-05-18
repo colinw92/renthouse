@@ -61,7 +61,7 @@
       ...mapActions(['USER_SIGNOUT']),
       exit() {
         this.USER_SIGNOUT();
-        this.$router.replace({path:'/login'});
+        this.$router.replace({path:'/MineDetails'});
       }
     },
     name:'mine',

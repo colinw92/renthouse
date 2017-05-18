@@ -40,7 +40,7 @@
         default: 'horizontal'
       }
     },
-    name:'houseDetail',
+    name:'HouseDetail',
     components:{
       mSwiper
     },

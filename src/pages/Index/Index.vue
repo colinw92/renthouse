@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-bind:class="{ 'tranformX':isA }">
     <m-header title="首页" :bg="true">
-      <span class="position" slot="left">上海</span>
+      <span class="position" slot="left" @click="toggle">上海</span>
       <span slot="right" v-if="user.username"><i class="user-icon"></i></span>
       <span slot="right" v-if="!user.username">登录</span>
     </m-header>
@@ -11,7 +11,7 @@
         <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner02.jpg" alt=""></div>
         <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner03.jpg" alt=""></div>
       </m-swiper>
-      <router-link to='/recommend' class="seacrh">
+      <router-link to='/Recommend' class="seacrh">
         <i class="search-icon"></i>
       </router-link>
     </div>
@@ -64,12 +64,12 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <router-link to="/houseDetail">
+            <router-link to="/HouseDetail">
               <img src="../../assets/images/home/home08.jpg" alt="">
             </router-link>
           </div>
           <div class="swiper-slide">
-            <router-link to="/houseDetail">
+            <router-link to="/HouseDetail">
               <img src="../../assets/images/home/home02.jpg" alt="">
             </router-link>
           </div>
@@ -93,11 +93,20 @@
   import mSwiper from '../../components/swiper'
   import mCell from '../../components/cell'
   import { mapState } from 'vuex'
+  import { mapActions , mapMutations } from 'vuex'
   import "../../assets/lib/swiper/js/swiper"
   export default {
-    computed: mapState({
-      user: state => state.user
-    }),
+    data(){
+      return{
+        flag:{
+          slideFlag:true,
+        },
+        isA:false
+      }
+    },
+    computed: {
+      ...mapState(['user']),
+    },
     props: {
       msg: {
         type: String,
@@ -134,6 +143,12 @@
         spaceBetween: that.spaceBetween
       })
     },
+    methods:{
+//      ...mapMutations(['SLIDE_FLAG']),
+      toggle() {
+        this.isA=!this.isA;
+      }
+    },
     name: 'index',
     components: {
       mHeader,
@@ -144,15 +159,14 @@
 </script>
 <style lang="less" scoped>
   @import "../../assets/lib/swiper/css/swiper.css";
-
+  @import "../../assets/css/base.css";
   .swiper-container img {
     width: 100%;
-    /*height: 200px;*/
   }
 
   .swiper-container2 img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     overflow: hidden;
   }
 

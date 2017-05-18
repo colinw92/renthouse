@@ -1,0 +1,16 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.tranformX{
+  transform: translateX(100px);
+}
+s{
+  text-decoration: none;
+}

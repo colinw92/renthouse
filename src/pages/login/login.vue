@@ -37,7 +37,7 @@
         default:"我的paipia"
       }
     },
-    name:'mine',
+    name:'login',
     components:{
       mHeader
     },
@@ -46,7 +46,7 @@
       submit() {
         if(!this.form.username || !this.form.pwd) return
         this.USER_SIGNIN(this.form)
-        this.$router.replace({path:'/mine'});
+        this.$router.replace({path:'/MineDetails'});
       }
     }
   }

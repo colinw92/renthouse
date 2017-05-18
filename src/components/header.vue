@@ -5,10 +5,10 @@
     </div>
     <h1 class="m-header-title" v-text="title"></h1>
     <div class="m-header-button is-right">
-      <router-link to="/login" v-if="!user.username">
+      <router-link to="/Login" v-if="!user.username">
         <slot name="right"></slot>
       </router-link>
-      <router-link to="/mine" v-if="user.username">
+      <router-link to="/MineDetails" v-if="user.username">
         <slot name="right"></slot>
       </router-link>
     </div>
@@ -16,6 +16,8 @@
 </template>
 <script type=text/ecmascript-6>
   import { mapState } from 'vuex'
+  import { mapActions } from 'vuex'
+  import { SLIDE_FLAG } from '../store/user'
   export default{
       computed:mapState({
         user:state => state.user

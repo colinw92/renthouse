@@ -6,7 +6,7 @@ import mine from '../pages/mine/mine'
 import login from '../pages/login/login'
 import person from '../pages/person/person'
 import houseDetail from '../pages/houseDetail/houseDetail'
-
+import mineDetails from '../pages/mineDetails/mineDetails'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +45,11 @@ export default new Router({
       path:'/houseDetail',
       name:'HouseDetail',
       component: houseDetail
+    },
+    {
+      path:'/mineDetails',
+      name:'MineDetails',
+      component: mineDetails
     }
   ]
 })
