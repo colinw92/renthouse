@@ -11,14 +11,13 @@
         <ul>
           <li>租房转租</li>
           <li>离地铁近</li>
-          <li>简约风格</li>
         </ul>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import housePhoto from '../assets/images/home/home01.jpg'
+  import housePhoto from '../assets/images/banner/banner01.jpg'
   export default{
     data(){
       return{

@@ -21,18 +21,15 @@
     <div class="media-content">
       <div class="swiper-container2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="../../assets/images/home/home01.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home02.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home03.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home04.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home05.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home06.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home07.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home08.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home09.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home10.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home11.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home12.jpg" alt=""></div>
+          <div class="swiper-slide" v-for="(item,index) in choiceness" :key="index">
+            <router-link to="/HouseDetail">
+              <img :src="getImgPath(item.imgUrl)">
+              <div class="housePriceBox">
+                <span class="housename">{{item.name}}</span>
+                <span class="housePrice">￥{{item.price}}/月</span>
+              </div>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -42,18 +39,15 @@
     <div class="media-content">
       <div class="swiper-container2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="../../assets/images/home/home12.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home11.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home10.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home09.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home08.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home07.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home06.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home05.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home04.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home03.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home02.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home01.jpg" alt=""></div>
+          <div class="swiper-slide" v-for="(item,index) in full" :key="index">
+            <router-link to="/HouseDetail">
+              <img :src="getImgPath(item.imgUrl)">
+              <div class="housePriceBox">
+                <span class="housename">{{item.name}}</span>
+                <span class="housePrice">￥{{item.price}}/月</span>
+              </div>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -63,26 +57,15 @@
     <div class="media-content" style="margin-bottom: 60px;">
       <div class="swiper-container2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <div class="swiper-slide" v-for="(item,index) in share" :key="index">
             <router-link to="/HouseDetail">
-              <img src="../../assets/images/home/home08.jpg" alt="">
+              <img :src="getImgPath(item.imgUrl)" alt="">
+              <div class="housePriceBox">
+                <span class="housename">{{item.name}}</span>
+                <span class="housePrice">￥{{item.price}}/月</span>
+              </div>
             </router-link>
           </div>
-          <div class="swiper-slide">
-            <router-link to="/HouseDetail">
-              <img src="../../assets/images/home/home02.jpg" alt="">
-            </router-link>
-          </div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home03.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home04.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home05.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home06.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home07.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home08.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home09.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home10.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home11.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="../../assets/images/home/home12.jpg" alt=""></div>
         </div>
       </div>
     </div>
@@ -95,13 +78,18 @@
   import { mapState } from 'vuex'
   import { mapActions , mapMutations } from 'vuex'
   import "../../assets/lib/swiper/js/swiper"
+  import { choiceness,full,share } from '../../service/getData'
+  import { getImgPath } from "../../config/mixin"
   export default {
     data(){
       return{
         flag:{
           slideFlag:true,
         },
-        isA:false
+        isA:false,
+        choiceness:[],
+        full:[],
+        share:[]
       }
     },
     computed: {
@@ -134,17 +122,27 @@
       }
     },
     mounted(){
-      var that = this;
-      new Swiper('.swiper-container2', {
-        effect: that.effect,
-        loop: that.loop,
-        direction: that.direction,
-        slidesPerView: that.slidesPerView,
-        spaceBetween: that.spaceBetween
+      choiceness().then(res => {
+        this.choiceness=res;
+      }).then(() => {
+        var that = this;
+        new Swiper('.swiper-container2', {
+          effect: that.effect,
+          loop: that.loop,
+          direction: that.direction,
+          slidesPerView: that.slidesPerView,
+          spaceBetween: that.spaceBetween
+        });
+      });
+      full().then(res => {
+        this.full=res;
+      })
+      share().then(res => {
+        this.share=res;
       })
     },
+    mixins: [getImgPath],
     methods:{
-//      ...mapMutations(['SLIDE_FLAG']),
       toggle() {
         this.isA=!this.isA;
       }
@@ -163,7 +161,6 @@
   .swiper-container img {
     width: 100%;
   }
-
   .swiper-container2 img {
     width: 100%;
     height: 180px;
@@ -191,33 +188,53 @@
     margin-top: 10px;
   }
 
-  .page-content {
-    position: relative;
+    .page-content {
+      position: relative;
 
-  .seacrh {
-    background-color: #2abd70;
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    bottom: -10px;
-    right: 30px;
-    z-index: 100;
+      .seacrh {
+        background-color: #2abd70;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        bottom: -10px;
+        right: 30px;
+        z-index: 100;
 
-  .search-icon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: url("../../assets/images/search.png") no-repeat;
-    -webkit-background-size: 30px;
-    background-size: 30px;
-    left: 50%;
-    top: 50%;
-    margin-left: -15px;
-    margin-top: -15px;
-  }
+        .search-icon {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          background: url("../../assets/images/search.png") no-repeat;
+          -webkit-background-size: 30px;
+          background-size: 30px;
+          left: 50%;
+          top: 50%;
+          margin-left: -15px;
+          margin-top: -15px;
+        }
 
-  }
-  }
+      }
+    }
+    .media-content{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      .housePriceBox{
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        font-size: 16px;
+        span{
+          text-decoration: none !important;
+        }
+        .housename{
+          margin-top: 8px;
+        }
+        .housePrice{
+          font-weight: 800;
+          margin-top: 5px;
+        }
+      }
+    }
   }
 </style>

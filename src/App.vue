@@ -72,6 +72,7 @@ export default {
 <style lang="less" scoped>
   @import "assets/css/base.css";
   #app{
+  transition:all 1s;
     .slide{
       position: absolute;
       width: 100%;
@@ -82,13 +83,13 @@ export default {
       ul{
         position: absolute;
         height: 100%;
-        top: -20px;
-        left: -40px;
+        /*top: -20px;*/
+        /*left: -40px;*/
         text-align:left;
         z-index:-1000;
         li{
           width: 100px;
-          height: 80px;
+          height: 75px;
           /*line-height: 80px;*/
           border: 1px solid #eee;
           font-size: 20px;

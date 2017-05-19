@@ -15,11 +15,11 @@
       </div>
     </div>
     <ul>
-      <li style="border-top: 1px solid #eee;"><i></i>我的收藏<s>></s></li>
-      <li><i></i>我的信息<s>></s></li>
-      <li style="border-top:1px solid #eee;margin-top: 20px;"><i></i>每日精选<s>></s></li>
-      <li><i></i>服务中心<s>></s></li>
-      <li><i></i>关于我们<s>></s></li>
+      <li style="border-top: 1px solid #eee;"><i class="collect"></i>我的收藏<s>></s></li>
+      <li><i class="message"></i>我的信息<s>></s></li>
+      <li style="border-top:1px solid #eee;margin-top: 20px;"><i class="recommd"></i>每日精选<s>></s></li>
+      <li><i class="service"></i>服务中心<s>></s></li>
+      <li><i class="aboutus"></i>关于我们<s>></s></li>
     </ul>
   </div>
 </template>
@@ -81,15 +81,54 @@
       font-size: 20px;
       height: 50px;
       line-height: 50px;
-      width: 90%;
+      width: 85%;
       float: right;
       text-align: left;
       border-bottom: 1px solid #eee;
       position: relative;
       background: #fff;
     }
-    i{
+    .collect,.aboutus,.message,.recommd,.service{
       position: absolute;
+      width: 20px;
+      height: 20px;
+    }
+    .collect{
+      background: url("../../assets/images/collect.png") no-repeat;
+      -webkit-background-size:20px;
+      background-size:20px;
+      top: 15px;
+      left: -35px;
+    }
+    .aboutus{
+      background: url("../../assets/images/aboutus.png") no-repeat;
+      -webkit-background-size:20px;
+      background-size:20px;
+      top: 15px;
+      left: -35px;
+    }
+    .message{
+      width: 25px;
+      height: 25px;
+      background: url("../../assets/images/message.png") no-repeat;
+      -webkit-background-size:25px;
+      background-size:25px;
+      top: 15px;
+      left: -38px;
+    }
+    .recommd{
+      background: url("../../assets/images/recommend.png") no-repeat;
+      -webkit-background-size:20px;
+      background-size:20px;
+      top: 15px;
+      left: -35px;
+    }
+    .service{
+      background: url("../../assets/images/service.png") no-repeat;
+      -webkit-background-size:20px;
+      background-size:20px;
+      top: 15px;
+      left: -35px;
     }
     s{
       float: right;

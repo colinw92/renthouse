@@ -5,9 +5,9 @@
     </router-link>
     <s v-on:click="collect"></s>
     <m-swiper class="m-swiper" swipeid="swipeid001" :autoplay="2000">
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/home/home01.jpg" alt=""></div>
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/home/home02.jpg" alt=""></div>
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/home/home03.jpg" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner01.jpg" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner02.jpg" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner03.jpg" alt=""></div>
     </m-swiper>
   </div>
 </template>

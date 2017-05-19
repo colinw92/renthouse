@@ -17,7 +17,6 @@
 <script type=text/ecmascript-6>
   import { mapState } from 'vuex'
   import { mapActions } from 'vuex'
-  import { SLIDE_FLAG } from '../store/user'
   export default{
       computed:mapState({
         user:state => state.user
