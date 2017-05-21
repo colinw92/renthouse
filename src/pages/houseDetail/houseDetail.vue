@@ -5,15 +5,32 @@
     </router-link>
     <s v-on:click="collect"></s>
     <m-swiper class="m-swiper" swipeid="swipeid001" :autoplay="2000">
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner01.jpg" alt=""></div>
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner02.jpg" alt=""></div>
-      <div class="swiper-slide" slot="swiper-con"><img src="../../assets/images/banner/banner03.jpg" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img :src="getImgPath(image_path)" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img :src="getImgPath(image_path)" alt=""></div>
+      <div class="swiper-slide" slot="swiper-con"><img :src="getImgPath(image_path)" alt=""></div>
     </m-swiper>
+    <span class="price">￥{{price}}元/月</span>
+    <div>
+      {{location}}
+    </div>
+    <div>
+      {{traffic}}
+    </div>
   </div>
 </template>
 <script type=text/ecmascript-6>
   import mSwiper from '../../components/swiper'
+  import { choiceness,full,share } from '../../service/getData'
+  import { getImgPath } from '../../config/mixin'
   export default{
+    date(){
+      return{
+        image_path:null,
+        price:null,
+        location:null,
+        traffic:null
+      }
+    },
     props: {
       msg: {
         type: String,
@@ -40,6 +57,13 @@
         default: 'horizontal'
       }
     },
+    created(){
+      this.image_path=this.$route.query.image_path;
+      this.price=this.$route.query.price;
+      this.location=this.$route.query.location;
+      this.traffic=this.$route.query.traffic;
+    },
+    mixins:[getImgPath],
     name:'HouseDetail',
     components:{
       mSwiper
@@ -74,6 +98,11 @@
       background-size:30px;
       top: 10px;
       right: 10px;
+    }
+    .price{
+      font-size: 20px;
+      font-weight:700;
+      color: grey;
     }
   }
 </style>

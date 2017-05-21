@@ -22,7 +22,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in choiceness" :key="index">
-            <router-link to="/HouseDetail">
+            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
               <img :src="getImgPath(item.imgUrl)">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>
@@ -40,7 +40,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in full" :key="index">
-            <router-link to="/HouseDetail">
+            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
               <img :src="getImgPath(item.imgUrl)">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>
@@ -58,7 +58,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in share" :key="index">
-            <router-link to="/HouseDetail">
+            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
               <img :src="getImgPath(item.imgUrl)" alt="">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>
@@ -223,7 +223,7 @@
         display: flex;
         flex-direction: column;
         color: #000;
-        font-size: 16px;
+        font-size: 18px;
         span{
           text-decoration: none !important;
         }
