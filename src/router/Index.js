@@ -7,6 +7,7 @@ import login from '../pages/login/login'
 import person from '../pages/person/person'
 import houseDetail from '../pages/houseDetail/houseDetail'
 import mineDetails from '../pages/mineDetails/mineDetails'
+import collect from '../pages/collect/collect'
 Vue.use(Router)
 
 export default new Router({
@@ -50,6 +51,11 @@ export default new Router({
       path:'/mineDetails',
       name:'MineDetails',
       component: mineDetails
+    },
+    {
+      path:'/collect',
+      name:'Collect',
+      component: collect
     }
   ]
 })

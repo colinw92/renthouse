@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{ 'tranformX':isA }">
+  <div v-bind:class="{ 'tranformX':isA }" style="overflow-x: hidden;">
     <m-header title="首页" :bg="true">
       <span class="position" slot="left" @click="toggle">上海</span>
       <span slot="right" v-if="user.username"><i class="user-icon"></i></span>
@@ -22,7 +22,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in choiceness" :key="index">
-            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
+            <router-link :to="{path:'HouseDetail',query:{name:item.name,image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic,excellence:item.excellence}}">
               <img :src="getImgPath(item.imgUrl)">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>
@@ -40,7 +40,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in full" :key="index">
-            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
+            <router-link :to="{path:'HouseDetail',query:{name:item.name,image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic,excellence:item.excellence}}">
               <img :src="getImgPath(item.imgUrl)">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>
@@ -58,7 +58,7 @@
       <div class="swiper-container2">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in share" :key="index">
-            <router-link :to="{path:'HouseDetail',query:{image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic}}">
+            <router-link :to="{path:'HouseDetail',query:{name:item.name,image_path:item.imgUrl,price:item.price,location:item.location,traffic:item.traffic,excellence:item.excellence}}">
               <img :src="getImgPath(item.imgUrl)" alt="">
               <div class="housePriceBox">
                 <span class="housename">{{item.name}}</span>

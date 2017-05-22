@@ -4,16 +4,13 @@
     </m-header>
     <m-select>
     </m-select>
-    <!--<m-cell-house v-for="(item,index) in houseArr" :key="index">-->
-      <!---->
-    <!--</m-cell-house>-->
     <div class="houseBox" v-for="(item,index) in houseArr" :key="index">
       <div class="houseBox-left">
         <img :src="getImgPath(item.imgUrl)">
       </div>
-      <router-link :to="{path:'/HouseDetail',query:{image_path:item.imgUrl,price:item.price}}">
+      <router-link :to="{path:'/HouseDetail',query:{name:item.name,image_path:item.imgUrl,price:item.price,excellence:item.excellence}}">
         <div class="houseBox-right">
-          <div v-model="houseTitle" class="house-title">{{item.name.substr(0,14)}}</div>
+          <div class="house-title">{{item.name.substr(0,14)}}</div>
           <div class="houseDetail">14.1|05|7层</div>
           <div class="housePrice">￥{{item.price}}元/月</div>
           <div class="houseAassess">
@@ -42,8 +39,7 @@
         msg:{
           type:String,
           default:"推荐hahhahhahaha"
-        },
-        houseTitle:'eqweqeq'
+        }
       },
       mixins: [getImgPath],
       name:'recommend',

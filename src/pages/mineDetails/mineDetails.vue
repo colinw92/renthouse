@@ -15,8 +15,18 @@
       </div>
     </div>
     <ul>
-      <li style="border-top: 1px solid #eee;"><i class="collect"></i>我的收藏<s>></s></li>
-      <li><i class="message"></i>我的信息<s>></s></li>
+      <router-link to="/Login" v-if="!user.username">
+        <li style="border-top: 1px solid #eee;"><i class="collect"></i>我的收藏<s>></s></li>
+      </router-link>
+      <router-link to="/Collect" v-if="user.username">
+        <li style="border-top: 1px solid #eee;"><i class="collect"></i>我的收藏<s>></s></li>
+      </router-link>
+      <router-link to="/Mine" v-if="user.username">
+        <li><i class="message"></i>我的信息<s>></s></li>
+      </router-link>
+      <router-link to="/Login" v-if="!user.username">
+        <li><i class="message"></i>我的信息<s>></s></li>
+      </router-link>
       <li style="border-top:1px solid #eee;margin-top: 20px;"><i class="recommd"></i>每日精选<s>></s></li>
       <li><i class="service"></i>服务中心<s>></s></li>
       <li><i class="aboutus"></i>关于我们<s>></s></li>

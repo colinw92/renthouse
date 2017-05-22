@@ -44,6 +44,7 @@
     methods:{
       ...mapActions(['USER_SIGNIN']),
       submit() {
+        console.log(this.form);
         if(!this.form.username || !this.form.pwd) return
         this.USER_SIGNIN(this.form)
         this.$router.replace({path:'/MineDetails'});
