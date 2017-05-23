@@ -5,22 +5,22 @@
         <i></i>
       </router-link>
     </m-header>
-    <div v-if="!houseCollected.houseName" style="margin: 20px auto;width: 255px;" class="swing animated">
+    <div v-if="!house.houseName" style="margin: 20px auto;width: 255px;" class="swing animated">
       <img src="../../assets/images/panda_success.png" alt="" style="margin: 0px auto;">
       <span class="prompt">还没收藏，快去收藏吧</span>
     </div>
-    <div class="houseBox" v-if="houseCollected.houseName">
+    <div class="houseBox" v-if="house.houseName">
       <div class="houseBox-left">
-        <img :src="getImgPath(houseCollected.img)">
+        <img :src="getImgPath(house.img)">
       </div>
-      <router-link :to="{path:'/HouseDetail',query:{name:houseCollected.houseName,image_path:houseCollected.img,price:houseCollected.price,excellence:houseCollected.excellence}}">
+      <router-link :to="{path:'/HouseDetail',query:{name:house.houseName,image_path:house.img,price:house.price,excellence:house.excellence}}">
         <div class="houseBox-right">
-          <div class="house-title">{{houseCollected.houseName}}</div>
+          <div class="house-title">{{house.houseName}}</div>
           <div class="houseDetail">14.1|05|7层</div>
-          <div class="housePrice">￥{{houseCollected.price}}元/月</div>
+          <div class="housePrice">￥{{house.price}}元/月</div>
           <div class="houseAassess">
             <ul>
-              <li v-for="(item,index) in houseCollected.excellence" :key="index">{{item}}</li>
+              <li v-for="(item,index) in house.excellence" :key="index">{{item}}</li>
             </ul>
           </div>
         </div>
@@ -43,7 +43,7 @@
       }
     },
     computed:{
-      ...mapState(['houseCollected'])
+      ...mapState(['house'])
     },
     props:{
       msg:{

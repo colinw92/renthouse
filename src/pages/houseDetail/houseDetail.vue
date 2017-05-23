@@ -3,7 +3,7 @@
     <router-link to="/index">
       <i></i>
     </router-link>
-    <s v-on:click.prevent="collect" :class="{'unCollect':isCollect,'collected':true}"></s>
+    <s v-on:click.prevent="collect" :class="{'unCollect':true,'collected':isCollect}"></s>
     <m-swiper class="m-swiper" swipeid="swipeid001" :autoplay="2000">
       <div class="swiper-slide" slot="swiper-con"><img :src="getImgPath(image_path)" alt=""></div>
       <div class="swiper-slide" slot="swiper-con"><img :src="getImgPath(image_path)" alt=""></div>
@@ -28,7 +28,7 @@
 </template>
 <script type=text/ecmascript-6>
   import { mapState,mapActions,mapMutations } from 'vuex'
-  import { USER_COLLECT } from '../../store/user'
+  import { USER_COLLECT } from '../../store/house'
   import mSwiper from '../../components/swiper'
   import { choiceness,full,share } from '../../service/getData'
   import { getImgPath } from '../../config/mixin'
@@ -52,15 +52,18 @@
       }
     },
     computed:{
-      ...mapState(['user']),
+      ...mapState(['house']),
       isCollect(){
-//        if (this.$store.state.user.houseName===this.name){
-//          console.log(this.$store.state.user);
-//          console.log(12343555);
-//        }else {
-//          console.log(this.$store.state.user[1].houseName);
-//          console.log(224343);
-//        }
+//        return false
+//        console.log(this.$store.state.houseName);
+////        if (this.$store.state.house===this.name){
+////          console.log(this.$store.state.house);
+////          console.log(12343555);
+////        }else {
+////          console.log(this.$store.state.user[1].houseName);
+////          console.log(224343);
+////        }
+
       }
     },
     props: {
@@ -110,9 +113,9 @@
         this.myCollect.price=this.price;
         this.myCollect.img=this.image_path;
         this.myCollect.excellence=this.excellence;
-        this.collectList.unshift(this.myCollect);
+        this.collectList.push(this.myCollect);
         this.USER_COLLECT(this.myCollect);
-        this.USER_COLLECT(this.collectList);
+//        this.USER_COLLECT(this.collectList);
       }
     }
   }
